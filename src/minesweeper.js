@@ -1,15 +1,22 @@
+// Minesweeper.js
+// Kevin Cochran
 
-// Empty board
-const blankLine = '  |   |  ';
-console.log('This is what an empty board would look like:');
-for(let i = 0; i < 3; i++) {
-    console.log(blankLine);
+const generatePlayerBoard = (numberOfRows, numberOfColumns) => {
+    let board = [];
+    for(let i = 0; i < numberOfRows; i++) {
+        board.push([]);
+        for(let j = 0; j < numberOfColumns; j++) {
+            board[i].push(' ');
+        }
+    }
+    return board;
+}
+const printBoard = board => {
+    console.log('Current board: ');
+    for(let i = 0; i < board.length; i++) {
+        console.log(board[i].join('|'));
+    }
 }
 
-// Guess board
-const guessLine = '1 |   |  ';
-const bombLine = '  | B |  ';
-console.log('This is what a board with a guess and a bomb on it would look like:');
-console.log(guessLine);
-console.log(bombLine);
-console.log(blankLine);
+// console.log(generatePlayerBoard(5,4));
+printBoard(generatePlayerBoard(5,4));
